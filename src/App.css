@@ -1,0 +1,345 @@
+/* ================
+   Палитра и базовые
+   ================ */
+:root {
+  --bg: #ffffff;
+  --text: #333333;
+  --accent: #ff6600;
+  --accent-light: #ffd9b3;
+  --accent-dark: #cc5200;
+  --info: #00aaff;
+  --success: #4caf50;
+  --warning: #ffcc00;
+  --error: #cc0000;
+  --border: #eeeeee;
+  --section-bg: #f9f9f9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ================
+   Header
+   ================ */
+.header {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .logo {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: transform 0.2s;
+}
+.header .logo:hover {
+  transform: scale(1.05);
+}
+.header nav a {
+  margin-left: 1rem;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s;
+}
+.header nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+.header nav a:hover,
+.header nav a.active {
+  color: var(--accent);
+}
+.header nav a:hover::after,
+.header nav a.active::after {
+  width: 100%;
+}
+
+/* ================
+   Hero-блок
+   ================ */
+.hero {
+  text-align: center;
+  color: #fff;
+  padding: 4rem 1rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* ================
+   Sections
+   ================ */
+section {
+  margin: 3rem 0;
+  padding: 2rem 0;
+  background: var(--section-bg);
+  border-radius: 8px;
+}
+section h2 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* ================
+   Categories
+   ================ */
+.categories .list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.categories .item {
+  flex: 1 1 200px;
+  padding: 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  background: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+.categories .item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* ================
+   Product Grid & Cards
+   ================ */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+.product-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.product-card img {
+  height: 160px;
+  object-fit: cover;
+}
+.product-card .info {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+}
+.product-card .price {
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.product-card button {
+  margin: 0.5rem auto 1rem;
+}
+
+/* ================
+   Testimonials
+   ================ */
+.testimonials .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.testimonials .card {
+  max-width: 280px;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.testimonials .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+/* ================
+   Newsletter
+   ================ */
+.newsletter {
+  text-align: center;
+  background: var(--accent-light);
+  padding: 2rem;
+  border-radius: 12px;
+}
+.newsletter form {
+  display: inline-flex;
+  margin-top: 1rem;
+}
+.newsletter input {
+  padding: 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 4px 0 0 4px;
+  width: 250px;
+}
+.newsletter button {
+  border-radius: 0 4px 4px 0;
+}
+
+/* ================
+   Buttons
+   ================ */
+.button,
+button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover:not(:disabled),
+.button:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+button:disabled,
+.button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* ================
+   Footer
+   ================ */
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+.footer a {
+  margin: 0 0.5rem;
+  transition: color 0.2s;
+}
+.footer a:hover {
+  color: var(--accent);
+}
+
+/* ================
+   Contact Page
+   ================ */
+.contact-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .contact-page {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-info {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.contact-info h2 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.contact-info p, .contact-info a {
+  margin-bottom: 0.75rem;
+  display: block;
+  color: var(--text);
+}
+.contact-info a {
+  font-weight: 500;
+}
+
+.contact-form {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.contact-form h2 {
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.contact-form .form-group label {
+  font-weight: 500;
+}
+.contact-form .form-group + .form-group {
+  margin-top: 1rem;
+}
+
+/* Авто-растущий textarea */
+.input-field {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.2;
+  height: 40px;           /* фиксированная высота для input */
+  box-sizing: border-box;
+}
+
+/* авторастущий textarea, но с тем же начальным размером */
+.input-field--auto {
+  resize: none;           /* отключаем ручное изменение */
+  overflow: hidden;       /* скрываем скролл */
+  min-height: 40px;       /* такое же, как input */
+  height: auto;           /* сбрасываем фиксированную высоту */
+  transition: height 0.1s;
+}
